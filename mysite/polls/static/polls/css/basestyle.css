@@ -24,3 +24,23 @@ body{
 #content{
     padding-left: 70px;
 }
+
+.block{
+    background-color: rgb(0, 191, 255);
+    background-image: linear-gradient(to bottom right, rgb(0, 191, 255), rgb(46, 77, 214));
+    padding-left:40px;
+    padding-right: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    width:65%;
+    border-radius: 5px;
+}
+.block .question{
+    float: left;
+}
+
+.block .publisher{
+    float: right;
+    padding-top: 5px;
+}
