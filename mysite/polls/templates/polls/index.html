@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>
+            Polls
+        </title>
+        <style>
+            a{
+                text-decoration: none;
+            }
+            ul{
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        {% if latest_question_list %}
+            <ul>
+                {% for question in latest_question_list %}
+                    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No Polls Available.</p>
+        {% endif %}
+    </body>
+</html>
