@@ -1,6 +1,7 @@
 {% extends 'polls/base.html' %}
 {% load static %}
 
+
 {% block title %}
     Question{{question.id}}
 {% endblock title %}
@@ -10,18 +11,36 @@
 {% endblock head %}
 
 {% block content %}
-    <h1> {{ question.question_text }} </h1>
+    <div id='Question'>
+        <h1>
+            Q) {{ question.question_text }}
+        </h1>
+        <div id='PublishInfo'>
+            -{{ question.publisher }}<br>
+            {{ question.pub_date }}
+        </div>
+    </div>
     <br>
+    <br>
+
     {% if error_message %}
-        <p><strong>{{error_message}}</strong></p>
+        <div class='vibrate' id='error'>
+            {{error_message}}
+        </div>
+        <br>
+        <br>
     {% endif %}
 
     <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
+    <div class="radio-toolbar">
     {% for choice in question.choice_set.all %}
         <input type="radio" name="choice" id ="choice{{ forloop.counter }}" value="{{ choice.id }}">
         <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-    {% endfor %}    
+        <br>
+    {% endfor %}
+    </div>
+    <br>    
     <input type="submit" value="Vote">
     </form>
 {% endblock content %}

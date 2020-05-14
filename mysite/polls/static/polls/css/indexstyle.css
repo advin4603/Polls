@@ -1,8 +1,9 @@
 #QuestionDetails li{
     list-style-type: none;
+    text-decoration: none;
     
 }
-#QuestionDetails a{
+#link{
     text-decoration: none;
     color: rgb(61, 61, 61);
 }

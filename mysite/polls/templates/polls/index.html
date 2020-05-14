@@ -13,15 +13,19 @@
 {% if latest_question_list %}
     <ul>
         {% for question in latest_question_list %}
-            <div id='QuestionDetails' class="block">
-                <li>
-                    <a href="{% url 'polls:detail' question.id %}">
-                        <div class='publisher'>-{{ question.publisher }}</div>
-                        <div class='question'>Q) {{ question.question_text }}</div>
-                        <br><br>{{ question.pub_date }}
-                    </a>
-                </li>
-            </div>
+            <a href="{% url 'polls:detail' question.id %}" id='link'>
+                <div id='QuestionDetails' class="block">
+                    <li>
+                        
+                            <div class='publisher'>-{{ question.publisher }}</div>
+                            <br>
+                            <div class='question'>Q) {{ question.question_text }}</div>
+                            <br><br>
+                            <div class='date'>{{ question.pub_date }}</div>
+                        
+                    </li>
+                </div>
+            </a>
         {% endfor %}
     </ul>
 {% else %}
