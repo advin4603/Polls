@@ -2,20 +2,44 @@
 {% load static %}
 
 {% block title %}
-     Results of Question{{question.id}}
+     Results of Question {{question.id}}
 {% endblock title %}
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'polls/css/resultsstyle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/detailstyle.css' %}">
 {% endblock head %}
 
 {% block content %}
-    <h1> {{ question.question_text }} </h1>
-    <ol>
-        {% for choice in question.choice_set.all %}
-            <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }} </li>
-        {% endfor %}
-    </ol>
+    <div id='Question'>
+        <h1>
+            Q) {{ question.question_text }}
+        </h1>
+        <div id='PublishInfo'>
+            -{{ question.publisher }}<br>
+            {{ question.pub_date }}
+        </div>
+    </div>
+    <br>
+    <br>
 
-    <a href="{% url 'polls:index' %}"> Vote again? </a>
+    <ul>
+        {% for choice in question.choice_set.all %}
+            {% if user_choice == choice.id %}
+                <div id="UserChoice">
+                    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }} </li>
+                </div>
+            {% else %}
+                <div id="NonUserChoice">
+                    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }} </li>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <br>
+    <br>
+    <a href="{% url 'polls:index' %}" class="button"> Vote again? </a>
+    <br><br><br><br><br>
+    
 {% endblock content %}
+

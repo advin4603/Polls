@@ -96,7 +96,7 @@ input[type=submit]:hover{
   background-image: linear-gradient(to bottom right, rgb(0, 255, 76), rgb(166, 255, 0));
   border: none;
   color: rgb(255, 255, 255);
-  font-family:  Futura, "Trebuchet MS", Arial, sans-serif;;
+  font-family:  Futura, "Trebuchet MS", Arial, sans-serif;
   padding: 16px 32px;
   text-decoration: none;
   margin: 4px 2px;
