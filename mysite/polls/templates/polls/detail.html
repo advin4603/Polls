@@ -1,8 +1,11 @@
+{% load static %}
+
 <html>
     <head>
         <title>
             Polls
         </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'polls/css/detail.css' %}">
     </head>
     <body>
         <h1> {{ question.question_text }} </h1>

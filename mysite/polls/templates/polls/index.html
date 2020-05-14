@@ -1,16 +1,10 @@
+{% load static %}
 <html>
     <head>
         <title>
             Polls
         </title>
-        <style>
-            a{
-                text-decoration: none;
-            }
-            ul{
-                list-style: none;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="{% static 'polls/css/index.css' %}">
     </head>
     <body>
         {% if latest_question_list %}
