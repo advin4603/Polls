@@ -1,0 +1,89 @@
+
+li {
+    list-style-type: none;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: rgb(255, 29, 29);
+    background-image: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(231, 36, 36));
+    color:wheat;
+    width: 40%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+  
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+.LoginForm{
+    margin-top: 30px;
+    border: 3px solid rgb(146, 146, 146);
+    border-radius: 4px;
+    max-width: max-content;
+    padding-bottom: 50px;
+}
+.LoginForm h1{
+    font-size:45px ;
+}
+.LoginForm form p{
+    margin: 50px;
+    font-size: 30px;
+    
+}
+
+.LoginForm form p input{
+    width: 500px;
+    height:50px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 3px solid rgb(146, 146, 146);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    border-radius: 4px;
+    outline:none;
+}
+.LoginForm form p input:focus{
+    border: 3px solid rgb(43, 43, 43);
+}
+
+.button{
+    font-family:Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 102, 255);
+    background-image: linear-gradient(to bottom right, rgb(0, 255, 76), rgb(166, 255, 0));
+    background-color: rgb(78, 99, 90);
+    max-width: max-content;
+    margin-bottom: 10px;
+    border: none;
+}

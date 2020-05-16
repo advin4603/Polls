@@ -21,6 +21,8 @@ ul{
     background-image: linear-gradient(to bottom right, rgb(107, 110, 91), rgb(143, 163, 130));
 }
 
+
+
 .button{
     text-decoration: none;
     padding-left: 10px;
@@ -34,4 +36,11 @@ ul{
     background-color: rgb(78, 99, 90);
     max-width: max-content;
     margin-bottom: 50px;
+}
+
+#Choice{
+    text-align: left;
+}
+#Votes{
+    text-align: right;
 }

@@ -1,0 +1,15 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    {{ user.username }}
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/accountstyle.css' %}">
+{% endblock head %}
+
+{% block content %}
+    Hey {{ user.username }}
+{% endblock content %}

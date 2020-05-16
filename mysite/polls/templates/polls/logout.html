@@ -1,0 +1,14 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+{% block title %}
+    Logged Out
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/logoutstyle.css' %}">
+{% endblock head %}
+
+{% block content %}
+    Successfully Logged Out
+{% endblock content %}

@@ -12,10 +12,28 @@
     <body>
 
         <div id="TopBar">
-            <h1>
-                <img src="{% static 'polls/images/pollsIcon.svg' %}" alt="" srcset="">
-                Polls
-            </h1>
+            <a href="{% url 'polls:index' %}">
+                <h1>
+                    <img src="{% static 'polls/images/pollsIcon.svg' %}" alt="" srcset="">
+                    Polls
+                </h1>
+            </a>
+            {% if logged %}
+                <div id="Logged">
+                    <div class="navElem">
+                        <a href="{% url 'polls:account' %}">My Account</a>
+                    </div>
+                    <div class="navElem">
+                        <a href="{% url 'polls:logout' %}">Logout</a>
+                    </div>
+                </div>
+            {% else %}
+                <div id="NotLogged"> 
+                    <div class="navElem">
+                        <a href="{% url 'polls:signIn' %}">Sign In</a>
+                    </div>
+                </div>
+            {% endif %}
         </div>
 
         <div id="content">
