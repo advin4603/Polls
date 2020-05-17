@@ -6,6 +6,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import logout as lgOut
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate,login
+from .forms import NewUserForm
 # Create your views here.
 
 
@@ -46,6 +47,23 @@ def results(request, question_id, user_choice_id):
 def logout(request):
     lgOut(request)
     return render(request, 'polls/logout.html', {'logged':False})
+
+def register(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            login(request, user)
+            return HttpResponseRedirect(reverse("polls:index"))
+        else:
+            return render(request = request,
+                          template_name = "polls/register.html",
+                          context={"form":form})
+    form = NewUserForm()
+    return render(request = request,
+                  template_name = "polls/register.html",
+                  context={"form":form})
 
 def signIn(request):
     if request.user.is_authenticated:

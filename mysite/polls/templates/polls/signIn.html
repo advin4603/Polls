@@ -18,7 +18,7 @@
                 {{form.as_p}}
                 <button type="submit" class="button">Login</button>
             </form>
-            Don't have an account? <a href="#">Sign Up Here!</a>
+            Don't have an account? <a href="{% url 'polls:register' %}">Register Here!</a>
         </div>
     </center>
 {% endblock content %}

@@ -1,0 +1,90 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+{% block title %}
+    Register
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/registerstyle.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <center>
+        <div class="LoginForm">
+            <h1>Register</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <p>
+                    <ul>
+                        {% if form.non_field_errors %}
+                                {{ form.non_field_errors }}
+                        {% endif %}
+                        {% if form.username.errors %}
+                                {{ form.username.errors }}
+                        {% endif %}
+                        {% if form.email.errors %}
+                                {{ form.email.errors }}
+                        {% endif %}
+                        {% if form.password1.errors %}
+                                {{ form.password1.errors }}
+                        {% endif %}
+                        {% if form.password2.errors %}
+                            
+                                {{ form.password2.errors }}
+                            
+                        {% endif %}
+                    </ul>
+                </p>
+                
+                <table>
+                    <tr>
+                        
+                        <p>
+                            <td>
+                                <label for="id_username">Username:</label>
+                            </td>
+                            <td>
+                                {{ form.username }}
+                            </td>
+                        </p>
+                    </tr>
+                    <tr>
+                        <p>
+                            <td>
+                                <label for="id_email">Email:</label>
+                            </td>
+                            <td>
+                                {{ form.email }}
+                            </td>
+                        </p>
+                    </tr>
+                    <tr>
+                        <p>
+                            <td>
+                                <label for="id_password1">Password:</label>
+                            </td>
+                            <td>
+                                {{ form.password1 }}
+                            </td>
+                        </p>
+                    </tr>
+                    <tr>
+                        <p>
+                            <td>
+                                <label for="id_password2">Confirm Password:</label>
+                            </td>
+                            <td>
+                                {{ form.password2 }}
+                            </td>
+                        </p>
+                    </tr>
+                </table>
+                
+                <button type="submit" class="button">Register</button>
+            </form>
+            Already have an account? <a href="{% url 'polls:signIn' %}">Sign In Here!</a>
+            
+        </div>
+    </center>
+{% endblock content %}

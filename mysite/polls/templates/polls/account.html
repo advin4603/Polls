@@ -11,5 +11,14 @@
 {% endblock head %}
 
 {% block content %}
-    Hey {{ user.username }}
+    <h1>Account Information</h1>
+    <table>
+        <tr>
+            <td>Username:</td><td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td><td>{{ user.email }}</td>
+        </tr>
+    </table>
+
 {% endblock content %}
