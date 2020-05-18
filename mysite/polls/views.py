@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate,login
 from .forms import NewUserForm
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -105,3 +106,9 @@ def create(request):
         
         return HttpResponseRedirect(reverse('polls:account'))
     return render(request,'polls/create.html',{'logged':True})
+
+def otherAccount(request,user_id):
+    user = get_object_or_404(User,pk=user_id)
+    if user == request.user:
+        return HttpResponseRedirect(reverse('polls:account'))
+    return render(request, 'polls/otherAccount.html', {'logged':request.user.is_authenticated, 'user':user})

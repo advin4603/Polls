@@ -1,0 +1,43 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    {{ user.username }}
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/otherAccountstyle.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <div id="Info">
+        <h1>Account Information</h1>
+        <table>
+            <tr>
+                <td id="Field">Username:</td><td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td id="Field">Email:</td><td>{{ user.email }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <h1 id="MyPolls">My Polls</h1><br><br><br>
+    <br>
+    <br>
+    {% for question in user.question_set.all %}
+        <a href="{% url 'polls:detail' question.id %}" id='link'>
+            <div id='QuestionDetails' class="block">
+                <li>
+                    <div class='publisher'>-{{ question.publisher.username }}</div>
+                    <br>
+                    <div class='question'>Q) {{ question.question_text }}</div>
+                    <br><br>
+                    <div class='date'>{{ question.pub_date }}</div>
+                </li>
+            </div>
+        </a>
+    {% endfor %}
+
+{% endblock content %}

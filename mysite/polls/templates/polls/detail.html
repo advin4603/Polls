@@ -16,7 +16,7 @@
             Q) {{ question.question_text }}
         </h1>
         <div id='PublishInfo'>
-            -{{ question.publisher }}<br>
+            <a href="{% url 'polls:otherAccount' question.publisher.id %}">-{{ question.publisher }}</a><br>
             {{ question.pub_date }}
         </div>
     </div>
