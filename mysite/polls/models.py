@@ -1,12 +1,12 @@
 from django.db import models
 import datetime
 from django.utils import timezone
-
+from django.contrib.auth import get_user_model
 # Create your models here.
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
-    publisher = models.CharField(max_length=200, default='admin')
+    publisher = models.ForeignKey(get_user_model(), on_delete=models.PROTECT, default='admin')
 
     def __str__(self):
         return self.question_text

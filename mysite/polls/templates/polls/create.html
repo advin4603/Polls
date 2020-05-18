@@ -1,0 +1,75 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Create Poll
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/createstyle.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <h1>Creating a Poll</h1>
+    <button onclick="newChoice()" id="Adder" class="button">Add Choice</button>
+    <form action="{% url 'polls:create' %}" method="post">
+        {% csrf_token %}
+        <ul>
+            <li id="Question">
+                <label for="question">Question:</label><br>
+                <textarea name="question" id="question" rows="10" cols="30">Question Here</textarea><br>
+            </li>
+            <li id="Choice1">
+                <input type="text" id="choice1" name="choice1" value="choice1"><br><br>
+            </li>
+            <li id="Choice2">
+                <input type="text" id="choice2" name="choice2" value="choice2"><br><br>
+            </li>
+        
+        </ul>
+        
+        <input type="submit" value="Create" class="Button">
+        
+    </form>
+{% endblock content %}
+{% block scripts %}
+    <script>
+        var count = 2;
+        function insertAfter(el, referenceNode) {
+            referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+        }
+        function newChoice(){
+            var ref = document.getElementById("Choice"+count);
+            count++
+            var newEl = document.createElement('li');
+            newEl.id = 'Choice'+count;
+            newEl.innerHTML = '<input type="text" id="choice'+count+'" name="choice'+count+'" value="choice'+count+'"><br><br>';
+            insertAfter(newEl, ref);
+            var remover = document.getElementById("Remover");
+            if (count==3){
+                var buttonEl = document.createElement('button');
+                buttonEl.id = "Remover"
+                buttonEl.onclick = delChoice
+                buttonEl.className = "Button"
+                buttonEl.innerHTML = "Delete Last Choice"
+                var newref = document.getElementById("Adder");
+                insertAfter(buttonEl, newref);
+            }
+        }
+
+        function delChoice(){
+            if (count>2){
+            var El = document.getElementById("Choice"+count);
+            El.remove();
+            count--;
+            }
+            
+            if (count==2){
+                var El = document.getElementById("Remover");
+                El.remove()
+            }
+            
+        }
+    </script>
+{% endblock scripts %}

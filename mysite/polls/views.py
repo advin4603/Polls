@@ -7,12 +7,13 @@ from django.contrib.auth import logout as lgOut
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate,login
 from .forms import NewUserForm
+from django.utils import timezone
 # Create your views here.
 
 
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    latest_question_list = Question.objects.order_by('-pub_date')[:35]
     context = {'latest_question_list':latest_question_list,'logged':request.user.is_authenticated}
     return render(request, 'polls/index.html', context)
 
@@ -86,3 +87,21 @@ def signIn(request):
             return render(request,'polls/signIn.html', {'logged':False,'form':form})
     form = AuthenticationForm()
     return render(request,'polls/signIn.html', {'logged':False,'form':form})
+
+def create(request):
+    User = request.user
+    if not User.is_authenticated:
+        return HttpResponseRedirect(reverse('polls:index'))
+    if request.method == "POST":
+        
+        q = request.POST['question']
+        newQ = Question(question_text=str(q),pub_date=timezone.now(),publisher=User)
+        newQ.save()
+        for key in request.POST:
+            if 'choice' in key:
+                c = newQ.choice_set.create(choice_text=request.POST[key],votes=0)
+                c.save()
+        newQ.save()
+        
+        return HttpResponseRedirect(reverse('polls:account'))
+    return render(request,'polls/create.html',{'logged':True})
