@@ -13,6 +13,7 @@ body{
     font-size: 30px;
 }
 
+
 #TopBar h1{
     float: left;
     display: block;
@@ -45,6 +46,8 @@ a{
     background-color: rgb(0, 191, 255);
     background-image: linear-gradient(to bottom right, rgb(0, 191, 255), rgb(46, 77, 214));
     padding-left:40px;
+    margin-left: 0px;
+    margin-right:30px;
     padding-right: 40px;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -71,3 +74,126 @@ a{
 .navElem a{
     color:#f2f2f2;
 }
+
+@media screen and (max-width: 680px) {
+    #TopBar {
+        overflow: hidden;
+        background-color: white;
+        background-image: none;
+        padding: 0 0 0 0;
+        height: 200px;
+        color: #f2f2f2;
+        font-size: 30px;
+        width: 100%;
+
+    }
+    #TopBar h1{
+        width: 100%;
+        background-color: rgb(46, 77, 214);
+        background-image: linear-gradient(to bottom right, rgb(18, 39, 133), rgb(46, 119, 214));
+        float: none;
+        height: 90px;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 32px 36px 0px 0px;
+        display: block;
+        text-align: center;
+        font-size: 40px;
+        color:#f2f2f2;
+    }
+    #TopBar h1 img{
+        height: 40px;
+    }
+    #content{
+        padding-left: 40px;
+        font-size: 20px;
+        margin-left: 0px;
+    }
+    #TopBar #Logged,#NotLogged{
+        font-size: 30px;
+        background-color: khaki;
+        margin-top: 0px;
+        float: initial;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        height: 60px;
+    }
+    .navElem a{
+        color: black;
+        text-align: center;
+    }
+    .block{
+        padding-left:30px;
+        margin-left: 0px;
+        margin-right:20px;
+        padding-right: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin-bottom: 50px;
+        width:80%;
+        border-radius: 5px;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .block{
+        padding-left:30px;
+        margin-left: 0px;
+        margin-right:20px;
+        padding-right: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin-bottom: 50px;
+        width:75%;
+        border-radius: 5px;
+    }
+}
+@media screen and (max-width: 410px) {
+    .block{
+        padding-left:30px;
+        margin-left: 0px;
+        margin-right:20px;
+        padding-right: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin-bottom: 50px;
+        width:70%;
+        border-radius: 5px;
+    }
+    #TopBar h1{
+        padding: 39px 36px 0px 0px;
+    }
+    #TopBar #Logged,#NotLogged{
+        font-size: 30px;
+        background-color: khaki;
+        margin-top: 0px;
+        float: initial;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        height: 60px;
+        padding-left:20px;
+    }
+    }
+    @media screen and (max-width: 370px){
+        #TopBar #Logged,#NotLogged{
+            font-size: 30px;
+            background-color: khaki;
+            margin-top: 0px;
+            float: initial;
+            padding-top: 10px;
+            padding-bottom: 0px;
+            height: 90px;
+            padding-left:20px;
+        }
+        #TopBar {
+            overflow: hidden;
+            background-color: white;
+            background-image: none;
+            padding: 0 0 0 0;
+            height: 230px;
+            color: #f2f2f2;
+            font-size: 30px;
+            width: 100%;
+    
+        }
+    }

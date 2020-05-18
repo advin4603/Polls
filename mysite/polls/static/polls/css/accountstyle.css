@@ -31,3 +31,51 @@ h1{
 #MyPolls{
     display: inline;
 }
+@media screen and (max-width: 620px){
+    #Field{
+        padding-right: 20px;
+    }
+    #Info{
+        margin-top: 30px;
+        border: 3px solid rgb(146, 146, 146);
+        border-radius: 4px;
+        max-width: min-content;
+        padding-bottom: 50px;
+        padding-left: 20px;
+        padding-right: 70px;
+        margin-bottom: 50px;
+    }
+}
+@media screen and (max-width: 1000px){
+    #MyPolls{
+        display: initial;
+    }
+    #NewPolls{
+        display: block;
+    }
+}
+@media screen and (max-width: 410px){
+    #Info{
+        margin-top: 30px;
+        border: 3px solid rgb(146, 146, 146);
+        border-radius: 4px;
+        max-width: min-content;
+        padding-bottom: 50px;
+        padding-left: 20px;
+        padding-right: 50px;
+        margin-bottom: 50px;
+    }
+    td{
+        padding-bottom: 25px;
+        font-size: 12px;
+    }
+    #Field{
+        padding-right: 5px;
+    }
+    #Info h1{
+        font-size: 30px;
+    }
+    #Content{
+        padding-left: 20px;
+    }
+}

@@ -23,8 +23,10 @@
         </table>
     </div>
 
-    <h1 id="MyPolls">My Polls</h1>
+    <h1 id="MyPolls">My Polls</h1><br><br><br>
     <a href="{% url 'polls:create' %}" id="NewPoll"> Create New Poll </a>
+    <br>
+    <br>
     {% for question in user.question_set.all %}
         <a href="{% url 'polls:detail' question.id %}" id='link'>
             <div id='QuestionDetails' class="block">

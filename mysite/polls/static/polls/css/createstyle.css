@@ -101,3 +101,11 @@ textarea:focus{
     border: 3px solid rgb(43, 43, 43);
     margin-top: 20px;
 }
+@media screen and (max-width: 500px){
+    textarea{
+        font-size: 18px;
+    }
+    input[type=text]{
+        font-size: 18px;
+    }
+}
