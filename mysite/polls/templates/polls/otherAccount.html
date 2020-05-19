@@ -23,7 +23,7 @@
         </table>
     </div>
 
-    <h1 id="MyPolls">My Polls</h1><br><br><br>
+    <h1 id="MyPolls">{{ user.username }}'s Polls</h1><br><br><br>
     <br>
     <br>
     {% for question in user.question_set.all %}
